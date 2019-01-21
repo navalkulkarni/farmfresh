@@ -1,4 +1,7 @@
 package com.company.farmfresh.dao;
 
-public class UserDao {
+import com.company.farmfresh.model.User;
+
+public interface UserDao {
+    void addUser(User u);
 }
