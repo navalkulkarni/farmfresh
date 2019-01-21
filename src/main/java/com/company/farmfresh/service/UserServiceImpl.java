@@ -1,4 +1,16 @@
 package com.company.farmfresh.service;
 
-public class UserServiceImpl {
+import com.company.farmfresh.dao.UserDao;
+import com.company.farmfresh.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService{
+    @Autowired
+    private UserDao userDao;
+    @Override
+    public void addUser(User u) {
+        userDao.addUser(u);
+    }
 }
