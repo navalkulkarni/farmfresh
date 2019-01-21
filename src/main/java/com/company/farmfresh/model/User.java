@@ -1,15 +1,28 @@
 package com.company.farmfresh.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Users")
 public class User {
+    @NotNull
+    @Size(max = 25)
     private String name;
+    @Id
+    @NotNull
     private String email;
+    @NotNull
+    @Size(min = 8,max = 15)
     private String password;
+    @NotNull
+    @Size(max = 10)
     private String mobileNumber;
+    @NotNull
+    @Size(max = 100)
     private String address;
 
     public User() {
