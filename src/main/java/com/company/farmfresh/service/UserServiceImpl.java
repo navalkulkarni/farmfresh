@@ -19,4 +19,9 @@ public class UserServiceImpl implements UserService{
         User u=userDao.findByEmail(e);
         return u;
     }
+
+    @Override
+    public void removeUser(User u) {
+        userDao.removeUser(u);
+    }
 }
