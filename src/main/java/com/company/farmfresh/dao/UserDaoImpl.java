@@ -20,5 +20,14 @@ public class UserDaoImpl implements UserDao {
         session.close();
     }
 
+    @Override
+    public User findByEmail(String e) {
+        Session session=sessionFactory.openSession();
+        User u=session.get(User.class,e);
+        session.close();
+
+        return u;
+    }
+
 
 }
