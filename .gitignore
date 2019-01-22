@@ -5,3 +5,4 @@
 target/classes/app.properties
 target/classes/hibernate.cfg.xml
 target/classes/templates/index.html
+target
