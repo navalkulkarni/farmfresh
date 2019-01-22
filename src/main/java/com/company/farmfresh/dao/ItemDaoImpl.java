@@ -35,4 +35,13 @@ public class ItemDaoImpl implements ItemDao {
 
         return items;
     }
+
+    @Override
+    public void addItem(Item item) {
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(item);
+        session.getTransaction().commit();
+        session.close();
+    }
 }
