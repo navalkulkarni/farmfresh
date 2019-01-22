@@ -20,7 +20,7 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public void addItems(Item item) {
-        itemDao.addItems(item);
+    public void addItem(Item item) {
+        itemDao.addItem(item);
     }
 }
