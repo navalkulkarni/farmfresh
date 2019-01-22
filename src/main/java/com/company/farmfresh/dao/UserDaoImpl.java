@@ -29,5 +29,14 @@ public class UserDaoImpl implements UserDao {
         return u;
     }
 
+    @Override
+    public void removeUser(User u) {
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(u);
+        session.getTransaction().commit();
+        session.close();
+    }
+
 
 }

@@ -5,7 +5,7 @@
     <title>Login</title>
 </head>
 <body>
-    <form method="post" action="/user/login" th:object="${user}">
+    <form method="post" action="/user/userlogin" th:object="${user}">
         Enter Email:<input type="email" th:field="*{email}" required autofocus/><br/><br/>
         Enter Password:<input type="password" th:field="*{password}" required/><br/><br/>
         <input type="submit" value="Login"/>

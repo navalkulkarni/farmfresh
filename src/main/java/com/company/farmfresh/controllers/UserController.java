@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.constraints.Null;
 import java.util.Map;
 
 @Controller
@@ -29,9 +30,28 @@ public class UserController {
     public String addUser(User u,RedirectAttributes redirectAttributes)
     {
         userService.addUser(u);
-        redirectAttributes.addFlashAttribute("success","Signup Successful");
+        redirectAttributes.addFlashAttribute("signedUp","Signup Successful");
         return "redirect:/";
     }
 
+    @RequestMapping("/login")
+    public String loginUser(Map map)
+    {
+        User u=new User();
+        map.put("user",u);
+        return "login";
+    }
 
+    @RequestMapping(value ="/userlogin",method =RequestMethod.POST)
+    public String checkUser(User u,RedirectAttributes redirectAttributes)
+    {
+        User u1=userService.findByEmail(u.getEmail());
+        if(u1!=null)
+        {
+            redirectAttributes.addFlashAttribute("loggedIn","Login Successful");
+            return "redirect:/login";
+        }
+        return "redirect:/";
+
+    }
 }
