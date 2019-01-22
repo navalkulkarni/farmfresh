@@ -1,6 +1,7 @@
 package com.company.farmfresh.service;
 
 import com.company.farmfresh.dao.ItemDao;
+import com.company.farmfresh.dao.ItemDaoImpl;
 import com.company.farmfresh.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,10 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public List<Item> listOfItems() {
         return itemDao.listOfItems();
+    }
+
+    @Override
+    public void addItems(Item item) {
+        itemDao.addItems(item);
     }
 }
