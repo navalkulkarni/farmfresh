@@ -49,6 +49,7 @@ public class UserController {
         if(u1!=null)
         {
             redirectAttributes.addFlashAttribute("loggedIn","Login Successful");
+            return "redirect:/login";
         }
         return "redirect:/";
 

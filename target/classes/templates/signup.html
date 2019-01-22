@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Sign Up</title>
 </head>
 <body>
 <form action="/user/adduser" method="post" th:object="${user}">
-    Enter Name:<input type="text" th:field="*{name}"/><br/><br/>
-    Enter Email:<input type="text" th:field="*{email}"/><br/><br/>
-    Enter Password:<input type="text" th:field="*{password}"/><br/><br/>
-    Enter Mobile No:<input type="text" th:field="*{mobileNumber}"/><br/><br/>
-    Enter Address:<br/><br/><textarea rows="4" cols="40" th:field="*{address}"></textarea><br/><br/>
+    Enter Name:<input type="text" th:field="*{name}" required autofocus/><br/><br/>
+    Enter Email:<input type="email" th:field="*{email}" required/><br/><br/>
+    Enter Password:<input type="password" th:field="*{password}" required/><br/><br/>
+    Enter Mobile No:<input type="text" th:field="*{mobileNumber}" required/><br/><br/>
+    Enter Address:<br/><br/><textarea rows="4" cols="40" th:field="*{address}" required></textarea><br/><br/>
     <input type="submit" value="Sign Up"/>
 </form>
 </body>
