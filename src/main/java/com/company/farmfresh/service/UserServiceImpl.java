@@ -13,4 +13,10 @@ public class UserServiceImpl implements UserService{
     public void addUser(User u) {
         userDao.addUser(u);
     }
+
+    @Override
+    public User findByEmail(String e) {
+        User u=userDao.findByEmail(e);
+        return u;
+    }
 }
