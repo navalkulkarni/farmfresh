@@ -1,7 +1,4 @@
 
 *.class
-.idea/workspace.xml
-.idea/uiDesigner.xml
-target/classes/app.properties
-target/classes/hibernate.cfg.xml
-target/classes/templates/index.html
+.idea
+target

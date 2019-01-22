@@ -37,7 +37,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public void addItems(Item item) {
+    public void addItem(Item item) {
         Session session=sessionFactory.openSession();
         session.beginTransaction();
         session.save(item);

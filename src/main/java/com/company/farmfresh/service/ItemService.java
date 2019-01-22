@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ItemService {
     List<Item> listOfItems();
-    void addItems(Item item);
+    void addItem(Item item);
 }
