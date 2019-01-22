@@ -199,7 +199,9 @@
               <item name="Farmfresh project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="farmfresh" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Farmfresh project" type="b2602c69:ProjectViewProjectNode" />
@@ -247,7 +249,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk1.8.0_191" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.company.farmfresh.AppConfig" />
-      <module name="farmfresh" />
+      <module name="Farmfresh project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -490,7 +492,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/signup.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/company/farmfresh/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
