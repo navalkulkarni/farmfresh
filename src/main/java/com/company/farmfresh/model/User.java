@@ -6,8 +6,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "Users")
+@Entity(name="Users")
 public class User {
     @NotNull
     @Size(max = 25)
