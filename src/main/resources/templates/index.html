@@ -5,6 +5,9 @@
     <title>Home</title>
 </head>
 <body>
+<br/>
+<a th:href="@{/admin}">Enter in admin area</a>
+<br/>
 <div th:each="item : ${listOfItems}">
     <h3 th:text="${item.name}"></h3>
     <h5 th:text="${item.price}"></h5>
