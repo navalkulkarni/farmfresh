@@ -64,4 +64,13 @@ public class ItemDaoImpl implements ItemDao {
         session.close();
         return item;
     }
+
+    @java.lang.Override
+    public void updateItem(Item item) {
+    Session session=sessionFactory.openSession();
+    session.beginTransaction();
+    session.saveOrUpdate(item);
+    session.getTransaction().commit();
+    session.close();
+    }
 }

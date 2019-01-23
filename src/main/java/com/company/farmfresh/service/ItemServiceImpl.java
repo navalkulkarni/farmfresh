@@ -34,4 +34,9 @@ public class ItemServiceImpl implements ItemService{
         Item item=itemDao.findIteamById(id);
         return item;
     }
+
+    @Override
+    public void updateItem(Item item) {
+        itemDao.updateItem(item);
+    }
 }

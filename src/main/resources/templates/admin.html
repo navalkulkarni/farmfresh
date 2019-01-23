@@ -12,6 +12,7 @@
         <td align="center">name</td>
         <td align="center">price</td>
         <td align="center">Qty.</td>
+        <td align="center">Update</td>
         <td align="center">Delete</td>
     </tr>
     <tr th:each="Item: ${listOfItems}">
@@ -19,6 +20,7 @@
         <td th:text="${Item.name}"></td>
         <td th:text="${Item.price}"></td>
         <td th:text="${Item.quantity}"></td>
+        <td><form th:action="'/updatePage/'+${Item.id}"><input type="submit" name="Update" value="Update" /></form></td>
         <td><form th:action="'/deleteItem/'+${Item.id}"><input type="submit" name="Delete" value="Delete" /></form></td>
     </tr>
 </table>
@@ -28,5 +30,7 @@
 <a th:href="@{/newItem}">Add new Item</a>
 <br/>
 <p th:text="${addSuccess}" align="center"></p>
+<br/>
+<p th:text="${updateSuccess}" align="center"></p>
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
@@ -50,6 +51,25 @@ public class Home {
         Item item=itemService.findIteamById(id);
         itemService.deleteItem(item);
         redirectAttributes.addFlashAttribute("deleteSuccess","Deleted item with id"+id);
+        return "redirect:/admin";
+    }
+
+    @RequestMapping("/updatePage/{id}")
+    public String updatePage(Map map,@PathVariable int id){
+        map.put("itemToBeUpdated",itemService.findIteamById(id));
+        return "updateItem";
+    }
+
+    @RequestMapping(value = "/updateItem",method = RequestMethod.POST)
+    public String updateItem(@RequestParam("id")int id,@RequestParam("name")String name,@RequestParam("price")double price,@RequestParam("quantity")int quantity, RedirectAttributes redirectAttributes){
+
+        Item item=itemService.findIteamById(id);
+       // item.setId(id);
+        item.setName(name);
+        item.setPrice(price);
+        item.setQuantity(quantity);
+        itemService.updateItem(item);
+        redirectAttributes.addFlashAttribute("updateSuccess","Updated item with id");
         return "redirect:/admin";
     }
 }
