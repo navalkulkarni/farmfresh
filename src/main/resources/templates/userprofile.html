@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Profile</title>
+</head>
+<body>
+    <div>
+    <form method="post" th:object="${userdetails}" action="/user/deleteaccount" align="center">
+        Name:<input name="name" th:field="*{name}"/><br/><br/>
+        Email:<input name="email" th:field="*{email}"/><br/><br/>
+        Mobile Number:<input name="mobileNumber" th:field="*{mobileNumber}"/><br/><br/>
+        Address:<input name="address" th:value="*{address}"/><br/><br/>
+        <input type="submit" value="Delete Account"/>
+    </form>
+    </div>
+</body>
+</html>
