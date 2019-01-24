@@ -23,4 +23,20 @@ public class ItemServiceImpl implements ItemService{
     public void addItem(Item item) {
         itemDao.addItem(item);
     }
+
+    @Override
+    public void deleteItem(Item item) {
+        itemDao.deleteItem(item);
+    }
+
+    @Override
+    public Item findIteamById(int id) {
+        Item item=itemDao.findIteamById(id);
+        return item;
+    }
+
+    @Override
+    public void updateItem(Item item) {
+        itemDao.updateItem(item);
+    }
 }
