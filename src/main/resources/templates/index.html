@@ -5,6 +5,16 @@
     <title>Home</title>
 </head>
 <body>
+<a th:href="@{/user/signup}">Sign up</a><br/>
+<a th:href="@{/user/login}">Login</a>
+<p th:text="${loggedIn}"></p>
+<div th:if="${user}">
+<form method="post" action="/user/profile" th:object="${user}">
+    <input type="hidden" name="email" th:field="*{email}"/>
+    <input type="submit" value="My Account" />
+</form>
+</div>
+<p th:text="${deletion}"></p>
 <br/>
 <a th:href="@{/admin}">Enter in admin area</a>
 <br/>

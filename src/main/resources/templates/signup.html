@@ -5,12 +5,12 @@
     <title>Sign Up</title>
 </head>
 <body>
-<form action="/user/adduser" method="post" th:object="${user}">
-    Enter Name:<input type="text" th:field="*{name}" required autofocus/><br/><br/>
-    Enter Email:<input type="email" th:field="*{email}" required/><br/><br/>
-    Enter Password:<input type="password" th:field="*{password}" required/><br/><br/>
-    Enter Mobile No:<input type="text" th:field="*{mobileNumber}" required/><br/><br/>
-    Enter Address:<br/><br/><textarea rows="4" cols="40" th:field="*{address}" required></textarea><br/><br/>
+<form align="center" action="/user/adduser" method="post" th:object="${user}">
+    Enter Name:<input type="text" th:field="*{name}" required="true" autofocus="true"/><br/><br/>
+    Enter Email:<input type="email" th:field="*{email}" required="true"/><br/><br/>
+    Enter Password:<input type="password" th:field="*{password}" required="true"/><br/><br/>
+    Enter Mobile No:<input type="text" th:field="*{mobileNumber}" required="true"/><br/><br/>
+    Enter Address:<br/><br/><textarea rows="4" cols="40" th:field="*{address}" required="true"></textarea><br/><br/>
     <input type="submit" value="Sign Up"/>
 </form>
 </body>

@@ -25,7 +25,6 @@ public class UserDaoImpl implements UserDao {
         Session session=sessionFactory.openSession();
         User u=session.get(User.class,e);
         session.close();
-
         return u;
     }
 

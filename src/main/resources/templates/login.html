@@ -5,10 +5,12 @@
     <title>Login</title>
 </head>
 <body>
-    <form method="post" action="/user/userlogin" th:object="${user}">
-        Enter Email:<input type="email" th:field="*{email}" required autofocus/><br/><br/>
-        Enter Password:<input type="password" th:field="*{password}" required/><br/><br/>
+    <form align="center" method="post" action="/user/userlogin" th:object="${user}">
+        Enter Email:<input type="email" th:field="*{email}" required="true" autofocus="true"/><br/><br/>
+        Enter Password:<input type="password" th:field="*{password}" required="true"/><br/><br/>
         <input type="submit" value="Login"/>
     </form>
+
+<p></p>
 </body>
 </html>
