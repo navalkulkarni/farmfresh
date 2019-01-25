@@ -8,7 +8,7 @@
     <form method="post" action="/user/updateaccount" th:object="${userupdate}">
         <input type="hidden" name="email" th:field="*{email}"/><br/>
         Name:<input type="text" name="name" th:field="*{name}"/><br/><br/>
-        Password:<input type="password" name="pass" th:field="*{password}"/><br/><br/>
+        Password:<input type="text" name="pass" th:field="*{password}"/><br/><br/>
         Mobile number:<input type="text" name="mobile" th:field="*{mobileNumber}"/><br/><br/>
         Address:<input type="text" name="address" th:field="*{address}"/><br/><br/>
         <input type="submit" value="Save"/>
