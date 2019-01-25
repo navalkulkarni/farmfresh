@@ -88,5 +88,30 @@ public class UserController {
         }
         return "userprofile";
     }
+    @RequestMapping(value ="/update")
+    public String updateUser(Model model,@RequestParam("email") String mail)
+    {
+        User u2=userService.findByEmail(mail);
+        model.addAttribute("userupdate",u2);
+        return "updateuser";
+
+    }
+    @RequestMapping(value ="/updateaccount",method =RequestMethod.POST)
+    public String updateAccount(User u,Model model){
+        User user1=userService.findByEmail(u.getEmail());
+        if (user1!=null)
+        {
+            user1.setName(u.getName());
+            user1.setEmail(u.getEmail());
+            user1.setPassword(u.getPassword());
+            user1.setMobileNumber(u.getMobileNumber());
+            user1.setAddress(u.getAddress());
+            userService.updateUser(u);
+            model.addAttribute("updation","Account updated successfully..");
+            return "index";
+        }
+        return "userprofile";
+    }
+
 
 }
