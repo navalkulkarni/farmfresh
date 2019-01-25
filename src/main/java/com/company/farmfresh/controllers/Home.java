@@ -50,7 +50,7 @@ public class Home {
 
         Item item=itemService.findIteamById(id);
         itemService.deleteItem(item);
-        redirectAttributes.addFlashAttribute("deleteSuccess","Deleted item with id"+id);
+        redirectAttributes.addFlashAttribute("deleteSuccess","Deleted item with id: "+id);
         return "redirect:/admin";
     }
 
@@ -69,7 +69,7 @@ public class Home {
         item.setPrice(price);
         item.setQuantity(quantity);
         itemService.updateItem(item);
-        redirectAttributes.addFlashAttribute("updateSuccess","Updated item with id");
+        redirectAttributes.addFlashAttribute("updateSuccess","Updated item with id: "+id);
         return "redirect:/admin";
     }
 }
