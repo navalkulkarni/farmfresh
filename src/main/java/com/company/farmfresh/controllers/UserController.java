@@ -2,19 +2,13 @@ package com.company.farmfresh.controllers;
 
 import com.company.farmfresh.model.User;
 import com.company.farmfresh.service.UserService;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.servlet.http.HttpSession;
-import javax.validation.constraints.Null;
 import java.util.Map;
 
 @Controller
@@ -52,15 +46,17 @@ public class UserController {
     public String checkUser(User u,Model model)
     {
         User u1=userService.findByEmail(u.getEmail());
-        System.out.println(u1);
-        if(u1!=null)
+        if (u1!=null)
         {
-            model.addAttribute("user",u1);
-//            redirectAttributes.addFlashAttribute("loggedIn","Login Successful");
-            model.addAttribute("loggedIn","Login Successful");
-            return "index";
+        if (u1.getPassword().equals(u.getPassword())) {
+                model.addAttribute("user", u1);
+                model.addAttribute("loggedIn", "Login Successful");
+                return "index";
+            }
+            model.addAttribute("passwordcheck","Invalid Password.Please try again..");
+            return "login";
         }
-//        model.addAttribute("user",u);
+        model.addAttribute("emailcheck","Sorry,we don't recognise this email address");
         return "login";
 
     }
@@ -83,7 +79,6 @@ public class UserController {
         {
             userService.removeUser(user);
             model.addAttribute("deletion","Account deleted successfully");
-//            redirectAttributes.addFlashAttribute("deletion","Account deleted successfully");
             return "index";
         }
         return "userprofile";
@@ -113,5 +108,29 @@ public class UserController {
         return "userprofile";
     }
 
+//    @RequestMapping(value = "/update")
+//    public String updatePage(@RequestParam("email") String mail,Model model)
+//    {
+//        User u=userService.findByEmail(mail);
+//        model.addAttribute("userupdate",u);
+//        return "updateuser";
+//    }
+//    @RequestMapping(value = "/updateaccount",method = RequestMethod.POST)
+//    public String updateUser(User u,Model model)
+//    {
+//        User user1=userService.findByEmail(u.getEmail());
+//        if (user1!=null)
+//        {
+//            user1.setName(u.getName());
+//            user1.setEmail(u.getEmail());
+//            user1.setPassword(u.getPassword());
+//            user1.setMobileNumber(u.getMobileNumber());
+//            user1.setAddress(u.getAddress());
+//            userService.updateUser(user1);
+//            model.addAttribute("updation","Account updated successfully");
+//            return "index";
+//        }
+//        return "userprofile";
+//    }
 
 }

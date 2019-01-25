@@ -7,4 +7,5 @@ public interface UserDao {
     User findByEmail(String e);
     void removeUser(User u);
     void updateUser(User u);
+//    void updateUser(User u);
 }
