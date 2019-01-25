@@ -20,16 +20,10 @@ public class ItemDaoImpl implements ItemDao {
     @Override
     public List<Item> listOfItems() {
         Session session =sessionFactory.openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
 
-        // Create CriteriaQuery
-        CriteriaQuery<Item> criteria = builder.createQuery(Item.class);
-
-        // Specify criteria root
-        criteria.from(Item.class);
 
         // Execute query
-        List<Item> items = session.createQuery(criteria).getResultList();
+        List<Item> items = session.createQuery("from Items").getResultList();
 
         session.close();
 
