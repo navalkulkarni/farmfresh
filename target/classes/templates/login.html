@@ -10,7 +10,8 @@
         Enter Password:<input type="password" th:field="*{password}" required="true"/><br/><br/>
         <input type="submit" value="Login"/>
     </form>
-
-<p></p>
+    <p align="center" th:text="${passwordcheck}"></p>
+    <p align="center" th:text="${emailcheck}"></p><br/>
+    <a align="center" th:href="@{/user/signup}">New User?</a>
 </body>
 </html>

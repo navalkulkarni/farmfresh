@@ -12,7 +12,11 @@
         Mobile Number:<input name="mobileNumber" th:field="*{mobileNumber}"/><br/><br/>
         Address:<input name="address" th:value="*{address}"/><br/><br/>
         <input type="submit" value="Delete Account"/>
-    </form>
+    </form><br/>
+        <form method="post" align="center" action="/user/update" th:object="${userdetails}">
+            <input type="hidden" name="email" th:field="*{email}"/><br/>
+            <input type="submit" value="Update"/>
+        </form>
     </div>
 </body>
 </html>

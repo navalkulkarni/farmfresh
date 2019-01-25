@@ -6,4 +6,5 @@ public interface UserService {
     void addUser(User u);
     User findByEmail(String e);
     void removeUser(User u);
+//    void updateUser(User u);
 }
