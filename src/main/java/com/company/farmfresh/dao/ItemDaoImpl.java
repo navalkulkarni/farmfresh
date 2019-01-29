@@ -65,4 +65,16 @@ public class ItemDaoImpl implements ItemDao {
     session.getTransaction().commit();
     session.close();
     }
+    @Override
+    public void updateItemQuantity(List<Item> items) {
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        for (Item item:
+                items) {
+            item.setQuantity(item.getQuantity()-1);
+            session.saveOrUpdate(item);
+        }
+        session.getTransaction().commit();
+        session.close();
+    }
 }

@@ -39,4 +39,8 @@ public class ItemServiceImpl implements ItemService{
         itemDao.updateItem(item);
     }
 
+    public void updateItemQuantity(List<Item> items)
+    {
+        itemDao.updateItemQuantity(items);
+    }
 }
