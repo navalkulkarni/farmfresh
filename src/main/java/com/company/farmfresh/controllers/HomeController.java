@@ -82,6 +82,14 @@ public class HomeController {
         return "kart";
     }
 
+    @RequestMapping(value = "/viewKart")
+    public String viewKart(Model model,HttpSession session){
+        // kart.forEach(System.out::println);
+        model.addAttribute("loggedinuser",(User)session.getAttribute("loggedinuser"));
+        model.addAttribute("user",(User)session.getAttribute("user"));
+        return "kart";
+    }
+
 
     @RequestMapping("/newItem")
     public String newItem(Map map){
