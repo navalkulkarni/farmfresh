@@ -1,14 +1,13 @@
 package com.company.farmfresh.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name="Users")
-public class User implements Serializable {
+public class User {
     @NotNull
     @Size(max = 25)
     private String name;
@@ -16,14 +15,17 @@ public class User implements Serializable {
     @NotNull
     private String email;
     @NotNull
-    @Size(min = 8,max = 15)
+    @Size(min = 3,max = 15)
     private String password;
     @NotNull
     @Size(max = 10)
     private String mobileNumber;
     @NotNull
-    @Size(max = 100)
+    @Size(max = 300)
     private String address;
+
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.EAGER)
+    private List<Order> orderList;
 
     public User() {
 
@@ -77,6 +79,24 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
+    public void add(Order order){
+
+        if(orderList==null){
+            List<Item> orderList = new ArrayList<Item>();
+        }
+        orderList.add(order);
+
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -87,4 +107,6 @@ public class User implements Serializable {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+
 }
