@@ -36,6 +36,29 @@ public class HomeController {
         return "index";
     }
 
+    @RequestMapping(value="/viewKart/{id}")
+    public String addtoKart(@PathVariable int id, HttpSession session, Model model, RedirectAttributes redirectAttributes){
+        int totalPrice=0;
+        Item item=itemService.findById(id);
+
+        if(item.getQuantity()>0)
+            kart.add(item);
+        else
+            redirectAttributes.addFlashAttribute("itemOutOfStock","Item is out of Stock");
+
+        for (Item sample:
+                kart) {
+            totalPrice += sample.getPrice();
+        }
+      //  kart.forEach(System.out::println);
+        session.setAttribute("kart",kart);
+        session.setAttribute("price",totalPrice);
+        model.addAttribute("loggedinuser",(User)session.getAttribute("loggedinuser"));
+        model.addAttribute("user",(User)session.getAttribute("user"));
+        return "kart";
+    }
+
+
     @RequestMapping("/newItem")
     public String newItem(Map map){
         Item item=new Item();
@@ -59,7 +82,7 @@ public class HomeController {
     @RequestMapping("/deleteItem/{id}")
     public String deleteItem(@PathVariable int id,RedirectAttributes redirectAttributes){
 
-        Item item=itemService.findIteamById(id);
+        Item item=itemService.findById(id);
         itemService.deleteItem(item);
         redirectAttributes.addFlashAttribute("deleteSuccess","Deleted item with id: "+id);
         return "redirect:/admin";
@@ -67,14 +90,14 @@ public class HomeController {
 
     @RequestMapping("/updatePage/{id}")
     public String updatePage(Map map,@PathVariable int id){
-        map.put("itemToBeUpdated",itemService.findIteamById(id));
+        map.put("itemToBeUpdated",itemService.findById(id));
         return "updateItem";
     }
 
     @RequestMapping(value = "/updateItem",method = RequestMethod.POST)
     public String updateItem(@RequestParam("id")int id,@RequestParam("name")String name,@RequestParam("price")double price,@RequestParam("quantity")int quantity, RedirectAttributes redirectAttributes){
 
-        Item item=itemService.findIteamById(id);
+        Item item=itemService.findById(id);
        // item.setId(id);
         item.setName(name);
         item.setPrice(price);
