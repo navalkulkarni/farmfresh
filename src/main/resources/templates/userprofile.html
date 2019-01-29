@@ -13,10 +13,12 @@
         Address:<input name="address" th:value="*{address}"/><br/><br/>
         <input type="submit" value="Delete Account"/>
     </form>
-
         <form method="post" align="center" action="/user/update" th:object="${userdetails}">
             <input type="hidden" name="email" th:field="*{email}"/><br/>
             <input type="submit" value="Update"/>
+        </form><br/>
+        <form method="post" align="center" action="/user/logout" th:object="${sessionuser}">
+            <input type="submit" value="Logout"/>
         </form>
     </div>
 </body>

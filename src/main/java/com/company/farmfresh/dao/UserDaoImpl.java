@@ -45,14 +45,4 @@ public class UserDaoImpl implements UserDao {
         session.getTransaction().commit();
         session.close();
     }
-//    @Override
-//    public void updateUser(User u) {
-//        Session session=sessionFactory.openSession();
-//        session.beginTransaction();
-//        session.saveOrUpdate(u);
-//        session.getTransaction().commit();
-//        session.close();
-//    }
-
-
 }

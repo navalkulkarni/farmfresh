@@ -1,23 +1,23 @@
 package com.company.farmfresh.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name ="Categories")
+@Entity(name = "Categories")
 public class Category {
+
     @Id
     private int catId;
+
     @NotNull
     @Size(max =20)
     private String catName;
-//    @OneToMany
-//    private List<items> list;
+
+    @OneToMany(mappedBy = "category",cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
+    private List<Item> itemList;
 
     public Category() {
     }
@@ -41,6 +41,23 @@ public class Category {
 
     public void setCatName(String catName) {
         this.catName = catName;
+    }
+
+    public void add(Item item){
+
+        if(itemList==null){
+            List<Item> itemList = new ArrayList<Item>();
+        }
+        itemList.add(item);
+
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     @Override
