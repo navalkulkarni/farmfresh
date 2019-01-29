@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class OrderController {
             User existingUser=(User) session.getAttribute("loggedinuser");
 
             order.setItemList((List)session.getAttribute("kart"));
+
 
             order.setDate(LocalDate.now());
 
