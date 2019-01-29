@@ -57,6 +57,30 @@ public class HomeController {
         model.addAttribute("user",(User)session.getAttribute("user"));
         return "kart";
     }
+    @RequestMapping(value = "/removeItem/{id}")
+    public String removeItem(@PathVariable int id,HttpSession session){
+        int i=0;
+        int totalPrice=0;
+        Item remove=new Item();
+
+        for (Item item:kart) {
+            if(item.getId()==id){
+                remove=item;
+                break;
+            }
+        }
+        kart=(List<Item>) session.getAttribute("kart");
+        kart.remove(remove);
+        for (Item sample:
+                kart) {
+            totalPrice += sample.getPrice();
+        }
+        session.setAttribute("kart",kart);
+        session.setAttribute("price",totalPrice);
+        //kart.forEach(System.out::println);
+
+        return "kart";
+    }
 
 
     @RequestMapping("/newItem")

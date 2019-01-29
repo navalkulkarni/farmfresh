@@ -57,8 +57,7 @@ public class ItemDaoImpl implements ItemDao {
         return item;
     }
 
-
-    @java.lang.Override
+    @Override
     public void updateItem(Item item) {
     Session session=sessionFactory.openSession();
     session.beginTransaction();
