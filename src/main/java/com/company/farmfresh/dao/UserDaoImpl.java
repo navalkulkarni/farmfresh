@@ -38,11 +38,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(User u) {
+    public User updateUser(User u) {
         Session session=sessionFactory.openSession();
         session.beginTransaction();
         session.saveOrUpdate(u);
+        User u1=session.get(User.class,u.getEmail());
+
         session.getTransaction().commit();
         session.close();
+        return u1;
     }
 }

@@ -4,6 +4,7 @@ import com.company.farmfresh.model.Order;
 import com.company.farmfresh.model.User;
 import com.company.farmfresh.service.ItemService;
 import com.company.farmfresh.service.OrderService;
+import com.company.farmfresh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,8 @@ public class OrderController {
 
     @Autowired
     private ItemService itemService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/orders")
     public String getOrdersForUser(Model model, HttpSession session){
@@ -36,8 +39,16 @@ public class OrderController {
     }
     @RequestMapping(value = "/orders/submit",method = RequestMethod.POST)
     public String submitOrder(Order order, RedirectAttributes attributes, HttpSession session){
+//        if(order==null){
+//
+//            return "index";
+//        }
+        if (session.getAttribute("kart")==null)
+        {
+            return "redirect:/";
+        }
 
-        if ((order != null)) {
+        else if ((order != null)) {
 
             User newUser=(User)session.getAttribute("user");
 

@@ -90,7 +90,30 @@ public class HomeController {
         return "kart";
     }
 
+    @RequestMapping("/adminlogin")
+    public String loginAdmin(Model model)
+    {
+        User u=new User();
+        model.addAttribute("user",u);
+        return "adminlogin";
+    }
 
+
+    @RequestMapping(value ="/admincheck",method =RequestMethod.POST)
+    public String checkUser(User u,Model model,RedirectAttributes redirectAttributes) {
+
+        model.addAttribute("listOfItems",itemService.listOfItems());
+        if (u.getEmail().equals("admin@gmail.com") &&
+                u.getPassword().equals("pass")) {
+            return "admin";
+        }
+
+        else {
+            redirectAttributes.addFlashAttribute("passwordcheck", "please check the details you entered");
+            return "redirect:/adminlogin";
+        }
+
+    }
     @RequestMapping("/newItem")
     public String newItem(Map map){
         Item item=new Item();
