@@ -8,6 +8,6 @@ public interface ItemService {
     List<Item> listOfItems();
     void addItem(Item item);
     void deleteItem(Item item);
-    Item findIteamById(int id);
+    Item findItemById(int id);
     void updateItem(Item item);
 }

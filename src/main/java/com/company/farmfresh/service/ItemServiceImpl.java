@@ -30,7 +30,7 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public Item findIteamById(int id) {
+    public Item findItemById(int id) {
         Item item=itemDao.findIteamById(id);
         return item;
     }
