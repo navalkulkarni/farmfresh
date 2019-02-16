@@ -1,27 +1,35 @@
 <!DOCTYPE html >
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Home</title>
+<head th:replace="layout :: head('FarmFresh')">
+    <link rel="stylesheet" th:href="@{/bootstrap.css}"/>
+
 </head>
 <body>
-<a th:href="@{/user/signup}">Sign up</a><br/>
-<a th:href="@{/user/login}">Login</a>
-<p th:text="${loggedIn}"></p>
-<div th:if="${user}">
-<form method="post" action="/user/profile" th:object="${user}">
-    <input type="hidden" name="email" th:field="*{email}"/>
-    <input type="submit" value="My Account" />
-</form>
+<div th:replace="layout :: nav"></div>
+<table>
+<div class="container-fluid">
+    <div class="row">
+        <div th:each="item : ${listOfItems}">
+            <div class="col-lg-6">
+                <img th:src="@{'/fruits/'+${item.name}+'.jpg'}" alt="item-image" width="150" height="150"/>
+                <p th:text="${item.name}"></p>
+                <p th:text="${item.price}"></p>
+                <a th:href="'/viewKart/'+${item.id}">Add to Kart</a>
+            </div>
+        </div>
+
+    </div>
+
 </div>
-<p th:text="${deletion}"></p>
-<br/>
-<p th:text="${updation}"></p>
-<a th:href="@{/admin}">Enter in admin area</a>
-<br/>
-<div th:each="item : ${listOfItems}">
-    <h3 th:text="${item.name}"></h3>
-    <h5 th:text="${item.price}"></h5>
+<div>
+<p th:text="${signedUp}" align="center"></p>
 </div>
+<!--<div>-->
+<!--<p th:text="${loggedIn}" align="center"></p>-->
+ <!--</div>-->
+<div>
+    <p th:text="${deletion}" align="center"></p>
+</div>
+</table>
 </body>
 </html>

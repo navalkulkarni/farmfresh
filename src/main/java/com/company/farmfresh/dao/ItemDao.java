@@ -8,6 +8,7 @@ public interface ItemDao {
     List<Item> listOfItems();
     void addItem(Item item);
     void deleteItem(Item item);
-    Item findIteamById(int id);
+    Item findById(int id);
     void updateItem(Item item);
+    void updateItemQuantity(List<Item> items);
 }

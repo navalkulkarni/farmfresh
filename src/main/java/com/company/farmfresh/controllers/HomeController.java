@@ -58,7 +58,6 @@ public class HomeController {
         model.addAttribute("user",(User)session.getAttribute("user"));
         return "kart";
     }
-
     @RequestMapping(value = "/removeItem/{id}")
     public String removeItem(@PathVariable int id,HttpSession session){
         int i=0;
