@@ -12,6 +12,7 @@ project becomes much bigger and due to time constraint we are going to add follo
 
 <h2>Future Scope</h2>
 <ul>
+<li>Front End in Angular JS</li>
 <li>Payment Gateway</li>
 <li>Vendor i.e Farmer Registration</li>
 <li>Location Tracking</li>
@@ -22,7 +23,7 @@ project becomes much bigger and due to time constraint we are going to add follo
 <h3>30 Days</h3>
 
 <h2> Technology Stack :</h2>
-<h3>BackEnd : Java's Spring and Hibernate Framework</h3>
+<h3>BackEnd : Java's Spring Boot and Hibernate Framework</h3>
 <h3>DataBase : MySql</h3>
 <h3>FrontEnd : BootStrap FrameWork and ThymeLeaf Template Engine For Generating Views</h3>
 
